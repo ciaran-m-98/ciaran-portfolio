@@ -7,10 +7,10 @@ export default function SkillItem({
   image: string;
 }) {
   return (
-    <div className="w-60 h-96 bg-white text-black flex-none rounded-md flex flex-col justify-center items-center gap-24">
+    <div className="w-60 h-96 flex-none rounded-md flex flex-col justify-center items-center gap-24 border">
       <div>
         <Image
-          className="dark"
+          className="dark:invert"
           src={image}
           alt={`${skill} Logo`}
           width={180}
@@ -18,7 +18,7 @@ export default function SkillItem({
           priority
         />
       </div>
-      <div>{skill}</div>
+      <h2 className="dark:text-white">{skill}</h2>
     </div>
   );
 }
