@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
@@ -12,8 +12,10 @@ export default function Navbar() {
     setDropDownEnabled(!dropDownEnabled);
   }
 
+  const [sideMenuEnabled, setSideMenuEnabled] = useState<boolean>(false);
+
   return (
-    <div className="w-full h-[3.5rem] flex flex-row justify-between p-3 items-center sticky top-0 font-[family-name:var(--font-roboto-sans)] border-b border-neutral-800 ">
+    <div className="w-full h-[56px] flex flex-row justify-between p-3 items-center fixed top-0 font-[family-name:var(--font-roboto-sans)] border-b border-neutral-800 ">
       <div className="text-md font-[family-name:var(--font-orienta-sans)]">
         <Link href={"/"}>Ciarán O'Maoilearca</Link>
       </div>
@@ -38,16 +40,17 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
-      <div className="md:hidden">
-        {" "}
+      <div className="md:hidden flex justify-center items-center">
+        <button onClick={() => setSideMenuEnabled(!sideMenuEnabled)}>
         <Image
           className="dark:invert"
-          src={"/menu.svg"}
+          src={sideMenuEnabled ? "/menu-open.svg" : "/menu.svg"}
           alt={"Github Link"}
           width={20}
           height={20}
           priority
         />
+        </button>
       </div>
     </div>
   );
