@@ -3,7 +3,8 @@ import { Geist, Geist_Mono, Roboto, Orienta } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/ui/navbar/Navbar";
 import PageLayout from "@/ui/PageLayout";
-
+import StoreProvider from "./StoreProvider";
+import ResponsiveNavbar from "@/ui/navbar/ResponsiveNavbar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -37,13 +38,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${orienta.variable} antialiased`}
-      >
-        <Navbar />
-        <PageLayout>{children}</PageLayout>
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${orienta.variable} antialiased`}
+        >
+          <Navbar />
+          <ResponsiveNavbar/>
+          <PageLayout>{children}</PageLayout>
+        </body>
+      </html>
+    </StoreProvider>
   );
 }

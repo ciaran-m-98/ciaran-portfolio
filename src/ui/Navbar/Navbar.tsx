@@ -4,18 +4,30 @@ import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
 import { NavbarLink, NavbarDropdown } from "./NavbarItem";
-
+import { useAppDispatch, useAppSelector } from "@/service/hooks";
+import {
+  openNavbar,
+  closeNavbar,
+  selectNavbarIsOpen,
+} from "@/app/features/navbar/navbarSlide";
 export default function Navbar() {
   const cx = classNames;
   const [dropDownEnabled, setDropDownEnabled] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
   function handleClick() {
     setDropDownEnabled(!dropDownEnabled);
   }
-
-  const [sideMenuEnabled, setSideMenuEnabled] = useState<boolean>(false);
-
+  const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
+  const handleNavbarState = () => {
+    if(isResponsiveNavbarOpen) {
+      dispatch(closeNavbar())
+    }
+    else{
+      dispatch(openNavbar())
+    }
+  };
   return (
-    <div className="w-full h-[56px] flex flex-row justify-between p-3 items-center fixed top-0 font-[family-name:var(--font-roboto-sans)] border-b border-neutral-800 ">
+    <div className="w-full h-[56px] flex flex-row justify-between p-3 items-center fixed top-0 font-[family-name:var(--font-roboto-sans)] border-b border-neutral-800 z-50">
       <div className="text-md font-[family-name:var(--font-orienta-sans)]">
         <Link href={"/"}>Ciarán O'Maoilearca</Link>
       </div>
@@ -41,15 +53,15 @@ export default function Navbar() {
         </div>
       </div>
       <div className="md:hidden flex justify-center items-center">
-        <button onClick={() => setSideMenuEnabled(!sideMenuEnabled)}>
-        <Image
-          className="dark:invert"
-          src={sideMenuEnabled ? "/menu-open.svg" : "/menu.svg"}
-          alt={"Github Link"}
-          width={20}
-          height={20}
-          priority
-        />
+        <button onClick={() => handleNavbarState()}>
+          <Image
+            className="dark:invert"
+            src={isResponsiveNavbarOpen ? "/menu-open.svg" : "/menu.svg"}
+            alt={"Github Link"}
+            width={20}
+            height={20}
+            priority
+          />
         </button>
       </div>
     </div>
