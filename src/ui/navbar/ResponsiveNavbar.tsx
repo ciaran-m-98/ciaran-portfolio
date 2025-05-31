@@ -1,7 +1,36 @@
-"use client";
-import { useAppSelector } from "@/service/hooks";
-import { selectNavbarIsOpen } from "@/app/features/navbar/navbarSlide";
+'use client';
+import { useAppDispatch, useAppSelector, useWindowSize } from '@/service/hooks';
+import { NavLink } from './NavLink';
+import {
+  closeNavbar,
+  selectNavbarIsOpen,
+} from '@/app/features/navbar/navbarSlide';
+import { useEffect } from 'react';
 export default function ResponsiveNavbar() {
+  const dispatch = useAppDispatch();
+  const windowSize = useWindowSize();
   const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
-  return isResponsiveNavbarOpen ? <div className="size-full absolute pt-[56px] bg-neutral-950 md:hidden">is open</div> : <></>;
+
+  useEffect(() => {
+    if (windowSize.width > 960) {
+      dispatch(closeNavbar());
+    }
+  }, [windowSize]);
+
+  return isResponsiveNavbarOpen ? (
+    <div className="responsive-navbar size-full md:hidden flex flex-col fixed bg-inherit px-4 pt-20">
+      <NavLink
+        title="About"
+        link="#about-section"
+        onClick={() => dispatch(closeNavbar())}
+      />
+      <NavLink
+        title="Skills"
+        link="#skills-section"
+        onClick={() => dispatch(closeNavbar())}
+      />
+    </div>
+  ) : (
+    <></>
+  );
 }

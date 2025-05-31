@@ -8,6 +8,10 @@ export default {
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      tablet: '960px',
+      desktop: '1248px'
+    },
     extend: {
       colors: {
         background: "var(--background)",

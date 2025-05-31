@@ -1,69 +1,74 @@
-"use client";
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import classNames from "classnames";
-import { NavbarLink, NavbarDropdown } from "./NavbarItem";
-import { useAppDispatch, useAppSelector } from "@/service/hooks";
+'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import { NavLink } from './NavLink';
+import { useAppDispatch, useAppSelector } from '@/service/hooks';
 import {
-  openNavbar,
   closeNavbar,
   selectNavbarIsOpen,
-} from "@/app/features/navbar/navbarSlide";
+  toggleNavbar,
+} from '@/app/features/navbar/navbarSlide';
+
 export default function Navbar() {
-  const cx = classNames;
-  const [dropDownEnabled, setDropDownEnabled] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-  function handleClick() {
-    setDropDownEnabled(!dropDownEnabled);
-  }
   const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
   const handleNavbarState = () => {
-    if(isResponsiveNavbarOpen) {
-      dispatch(closeNavbar())
-    }
-    else{
-      dispatch(openNavbar())
-    }
+    dispatch(toggleNavbar(!isResponsiveNavbarOpen));
   };
+  function handleTitleClick(): void {
+    if (!window) {
+      return;
+    }
+    const mainElement: HTMLElement | null =
+      document.getElementById('main-section');
+    if (mainElement) {
+      mainElement.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+    if (isResponsiveNavbarOpen) {
+      dispatch(closeNavbar());
+    }
+  }
   return (
-    <div className="w-full h-[56px] flex flex-row justify-between p-3 items-center fixed top-0 font-[family-name:var(--font-roboto-sans)] border-b border-neutral-800 z-50">
-      <div className="text-md font-[family-name:var(--font-orienta-sans)]">
-        <Link href={"/"}>Ciarán O'Maoilearca</Link>
+    <nav className="w-full h-20 flex flex-row justify-between p-2 items-center sticky top-0 border-b z-50 bg-inherit">
+      <div>
+        <button
+          className="text-2xl p-3 tracking-tighter"
+          onClick={handleTitleClick}
+        >
+          Ciarán Melarkey
+        </button>
       </div>
-      <div className="hidden md:flex flex-row gap-2 md:gap-4 lg:gap-6 ">
-        <NavbarLink title="About" link="/about" />
-        <NavbarLink title="Skills" link="/skills" />
-        <NavbarDropdown
-          handleClick={handleClick}
-          dropDownEnabled={dropDownEnabled}
-          setDropDownEnabled={setDropDownEnabled}
-        />
+      <div className="hidden tablet:flex">
+        <NavLink title="About" link="#about-section" />
+        <NavLink title="Skills" link="#skills-section" />
         <div className="flex justify-center items-center">
-          <Link href={"https://github.com/ciaran-m-98"} target="_blank">
+          <Link href={'https://github.com/ciaran-m-98'} target="_blank">
             <Image
               className="dark:invert"
-              src={"/github-mark.svg"}
-              alt={"Github Link"}
-              width={20}
-              height={20}
+              src={'/github-mark.svg'}
+              alt={'Github Link'}
+              width={30}
+              height={30}
               priority
             />
           </Link>
         </div>
       </div>
-      <div className="md:hidden flex justify-center items-center">
+      <div className="flex tablet:hidden justify-center items-center">
         <button onClick={() => handleNavbarState()}>
           <Image
-            className="dark:invert"
-            src={isResponsiveNavbarOpen ? "/menu-open.svg" : "/menu.svg"}
-            alt={"Github Link"}
-            width={20}
-            height={20}
+            className="dark:invert "
+            src={isResponsiveNavbarOpen ? '/menu-open.svg' : '/menu.svg'}
+            alt={'Github Link'}
+            width={30}
+            height={30}
             priority
           />
         </button>
       </div>
-    </div>
+    </nav>
   );
 }

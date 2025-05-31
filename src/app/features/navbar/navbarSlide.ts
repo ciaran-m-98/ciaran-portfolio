@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction  } from '@reduxjs/toolkit'
 import { RootState } from '@/service/store'
 
 
@@ -21,11 +21,14 @@ export const navbarSlice = createSlice({
     },
     closeNavbar: state => {
         state.navbarIsOpen = false
+    },
+    toggleNavbar: (state, action: PayloadAction<boolean>) => {
+      state.navbarIsOpen = action.payload
     }
   },
 })
 
-export const { openNavbar, closeNavbar } = navbarSlice.actions
+export const { openNavbar, closeNavbar, toggleNavbar } = navbarSlice.actions
 
 export const selectNavbarIsOpen = (state: RootState) => state.navbar.navbarIsOpen
 
