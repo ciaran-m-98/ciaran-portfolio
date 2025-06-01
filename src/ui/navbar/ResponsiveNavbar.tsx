@@ -21,12 +21,12 @@ export default function ResponsiveNavbar() {
     <div className="responsive-navbar size-full md:hidden flex flex-col fixed bg-inherit px-4 pt-20">
       <NavLink
         title="About"
-        link="#about-section"
+        link="about-section"
         onClick={() => dispatch(closeNavbar())}
       />
       <NavLink
         title="Skills"
-        link="#skills-section"
+        link="skills-section"
         onClick={() => dispatch(closeNavbar())}
       />
     </div>
