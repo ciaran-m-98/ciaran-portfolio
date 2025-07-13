@@ -1,35 +1,29 @@
-import Link from 'next/link';
 import { useAppDispatch, useAppSelector } from '@/service/hooks';
 import {
   closeNavbar,
   selectNavbarIsOpen,
 } from '@/app/features/navbar/navbarSlide';
+import classNames from 'classnames';
 export function NavLink({
   link,
   title,
   onClick,
+  extraClass
 }: {
   link: string;
   title: string;
   onClick?: () => void;
+  extraClass?: string
 }) {
   const dispatch = useAppDispatch();
+  const cx = classNames;
   const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
   function handleTitleClick(): void {
-    if (!window) {
+    const targetElement: HTMLElement | null = document.getElementById(link);
+    if (!targetElement) {
       return;
     }
-    const mainElement: HTMLElement | null =
-      document.getElementById('main-section');
-    const targetElement: HTMLElement | null = document.getElementById(link);
-    console.log(targetElement?.getBoundingClientRect());
-    console.log(mainElement?.getBoundingClientRect());
-    if (mainElement) {
-      mainElement.scrollTo({
-        top: 835,
-        behavior: 'smooth',
-      });
-    }
+    targetElement.scrollIntoView({ behavior: 'smooth' });
     if (isResponsiveNavbarOpen) {
       dispatch(closeNavbar());
     }
@@ -40,5 +34,5 @@ export function NavLink({
     }
     handleTitleClick();
   }
-  return <button onClick={handleClickEvents}>{title}</button>;
+  return <button className={cx(extraClass)} onClick={handleClickEvents}>{title}</button>;
 }

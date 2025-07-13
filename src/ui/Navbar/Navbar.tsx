@@ -31,8 +31,9 @@ export default function Navbar() {
       dispatch(closeNavbar());
     }
   }
+  const linkClass = 'text-xl';
   return (
-    <nav className="w-full h-20 flex flex-row justify-between p-2 items-center sticky top-0 border-b z-50 bg-inherit">
+    <nav className="w-full h-20 flex flex-row justify-between p-2 items-center sticky top-0 border-b z-50 bg-inherit font-[family-name:var(--font-orienta-sans)]">
       <div>
         <button
           className="text-2xl p-3 tracking-tighter"
@@ -41,9 +42,9 @@ export default function Navbar() {
           Ciarán Melarkey
         </button>
       </div>
-      <div className="hidden tablet:flex">
-        <NavLink title="About" link="#about-section" />
-        <NavLink title="Skills" link="#skills-section" />
+      <div className="hidden tablet:flex gap-8">
+        <NavLink title="About" link="about-section" extraClass={linkClass} />
+        <NavLink title="Skills" link="skills-section" extraClass={linkClass} />
         <div className="flex justify-center items-center">
           <Link href={'https://github.com/ciaran-m-98'} target="_blank">
             <Image
