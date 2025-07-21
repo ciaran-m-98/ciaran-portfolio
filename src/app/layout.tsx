@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Roboto, Orienta } from 'next/font/google';
 import Navbar from '@/ui/navbar/Navbar';
 import ResponsiveNavbar from '@/ui/navbar/ResponsiveNavbar';
 import StoreProvider from './StoreProvider';
+
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -39,7 +40,7 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en">
         <body
-          className={`antialiased overflow-hidden ${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${orienta.variable}`}
+          className={`antialiased overflow-hidden ${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${orienta.variable} background`}
         >
           <Navbar />
           <ResponsiveNavbar />

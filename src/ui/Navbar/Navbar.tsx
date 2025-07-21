@@ -33,7 +33,7 @@ export default function Navbar() {
   }
   const linkClass = 'text-xl';
   return (
-    <nav className="w-full h-20 flex flex-row justify-between p-2 items-center sticky top-0 border-b z-50 bg-inherit font-[family-name:var(--font-orienta-sans)]">
+    <nav className="w-full h-20 flex flex-row justify-between p-2 items-center sticky top-0 border-b-4 z-50 font-[family-name:var(--font-orienta-sans)] tablet:px-[20%]">
       <div>
         <button
           className="text-2xl p-3 tracking-tighter"
@@ -61,9 +61,9 @@ export default function Navbar() {
       <div className="flex tablet:hidden justify-center items-center">
         <button onClick={() => handleNavbarState()}>
           <Image
-            className="dark:invert "
+            className="dark:invert"
             src={isResponsiveNavbarOpen ? '/menu-open.svg' : '/menu.svg'}
-            alt={'Github Link'}
+            alt={'Open / Close Menu'}
             width={30}
             height={30}
             priority
