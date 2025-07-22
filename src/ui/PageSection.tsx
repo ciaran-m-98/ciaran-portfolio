@@ -10,7 +10,7 @@ export default function PageSection({
   return (
     <div
       id={sectionId}
-      className="h-[calc(100vh-80px)] w-screen snap-start"
+      className="h-[calc(100vh-80px)] w-screen pt-24"
     >
       {children}
     </div>

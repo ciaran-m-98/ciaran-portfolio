@@ -2,12 +2,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { NavLink } from './NavLink';
-import { useAppDispatch, useAppSelector } from '@/service/hooks';
 import {
-  closeNavbar,
+  useAppDispatch,
+  useAppSelector,
+  useScrollPosition,
+} from '@/service/hooks';
+import {
   selectNavbarIsOpen,
   toggleNavbar,
 } from '@/app/features/navbar/navbarSlide';
+import '../../app/globals.css';
+import { useEffect, useState } from 'react';
+import classNames from 'classnames';
 
 export default function Navbar() {
   const dispatch = useAppDispatch();
@@ -15,32 +21,32 @@ export default function Navbar() {
   const handleNavbarState = () => {
     dispatch(toggleNavbar(!isResponsiveNavbarOpen));
   };
-  function handleTitleClick(): void {
-    if (!window) {
-      return;
+  const num = useScrollPosition();
+  const [isScrollAtTop, setIsScrollAtTop] = useState<boolean>(true);
+  useEffect(() => {
+    if (num === 0) {
+      setIsScrollAtTop(true);
+    } else {
+      setIsScrollAtTop(false);
     }
-    const mainElement: HTMLElement | null =
-      document.getElementById('main-section');
-    if (mainElement) {
-      mainElement.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    }
-    if (isResponsiveNavbarOpen) {
-      dispatch(closeNavbar());
-    }
-  }
+  }, [num]);
+  const cx = classNames;
+
   const linkClass = 'text-xl';
   return (
-    <nav className="w-full h-20 flex flex-row justify-between p-2 items-center sticky top-0 border-b-4 z-50 font-[family-name:var(--font-orienta-sans)] tablet:px-[20%]">
+    <nav
+      className={cx(
+        'w-full h-24 flex flex-row px-2 justify-between items-center sticky top-0 z-50 font-[family-name:var(--font-orienta-sans)] tablet:px-[20%] bg-[url(../../public/background.png)]',
+        { 'border-none bg-none bg-transparent': isScrollAtTop },
+        { 'backdrop-blur-md bg-[#09090be0]': !isScrollAtTop }
+      )}
+    >
       <div>
-        <button
-          className="text-2xl p-3 tracking-tighter"
-          onClick={handleTitleClick}
-        >
-          Ciarán Melarkey
-        </button>
+        <NavLink
+          title="Ciaran Melarkey"
+          link="main-section"
+          extraClass={'text-2xl'}
+        />
       </div>
       <div className="hidden tablet:flex gap-8">
         <NavLink title="About" link="about-section" extraClass={linkClass} />

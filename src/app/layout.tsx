@@ -40,7 +40,7 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en">
         <body
-          className={`antialiased overflow-hidden ${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${orienta.variable} background`}
+          className={`antialiased ${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${orienta.variable} background`}
         >
           <Navbar />
           <ResponsiveNavbar />

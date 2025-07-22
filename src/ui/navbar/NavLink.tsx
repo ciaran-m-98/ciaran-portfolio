@@ -3,20 +3,18 @@ import {
   closeNavbar,
   selectNavbarIsOpen,
 } from '@/app/features/navbar/navbarSlide';
-import classNames from 'classnames';
 export function NavLink({
   link,
   title,
   onClick,
-  extraClass
+  extraClass,
 }: {
   link: string;
   title: string;
   onClick?: () => void;
-  extraClass?: string
+  extraClass?: string;
 }) {
   const dispatch = useAppDispatch();
-  const cx = classNames;
   const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
   function handleTitleClick(): void {
     const targetElement: HTMLElement | null = document.getElementById(link);
@@ -34,5 +32,9 @@ export function NavLink({
     }
     handleTitleClick();
   }
-  return <button className={cx(extraClass)} onClick={handleClickEvents}>{title}</button>;
+  return (
+    <button className={extraClass} onClick={handleClickEvents}>
+      {title}
+    </button>
+  );
 }
