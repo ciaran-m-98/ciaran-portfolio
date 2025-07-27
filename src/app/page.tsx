@@ -1,26 +1,8 @@
-'use client';
 import PageSection from '@/ui/PageSection';
 import HomeUi from '@/ui/home/HomeUi';
 import SkillsUi from '@/ui/skills/SkillsUi';
-import { useEffect } from 'react';
+import AboutUi from '@/ui/About/AboutUi';
 export default function Home() {
-  useEffect(() => {
-    if (!document) {
-      return;
-    }
-    console.log(
-      document.getElementById('main-section')?.getBoundingClientRect()
-    );
-  });
-  useEffect(() => {
-    const element = document.getElementById('main-section');
-    if (!element) {
-      return;
-    }
-    element.addEventListener('scroll', () => {
-      console.log(element.getBoundingClientRect());
-    });
-  }, []);
   return (
     <div
       id="main-section"
@@ -30,7 +12,7 @@ export default function Home() {
         <HomeUi />
       </PageSection>
       <PageSection sectionId="about-section">
-        <div>About</div>
+        <AboutUi />
       </PageSection>
       <PageSection sectionId="skills-section">
         <SkillsUi />

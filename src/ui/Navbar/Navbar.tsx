@@ -38,7 +38,7 @@ export default function Navbar() {
       className={cx(
         'w-full h-24 flex flex-row px-2 justify-between items-center sticky top-0 z-50 font-[family-name:var(--font-orienta-sans)] tablet:px-[20%] bg-[url(../../public/background.png)]',
         { 'border-none bg-none bg-transparent': isScrollAtTop },
-        { 'backdrop-blur-md bg-[#09090be0]': !isScrollAtTop }
+        { 'backdrop-blur-md tablet:bg-[#0a0a0ae0] bg-[#0a0a0a]': !isScrollAtTop }
       )}
     >
       <div>

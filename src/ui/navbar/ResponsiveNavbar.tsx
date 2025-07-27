@@ -12,7 +12,7 @@ export default function ResponsiveNavbar() {
   const dispatch = useAppDispatch();
   const windowSize = useWindowSize();
   const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
-  const cssString = 'text-xl text-start pl-5 h-20 border-b-4';
+  const fullNavClasses = 'text-xl text-start pl-5 h-20';
 
   useEffect(() => {
     if (windowSize.width > 960) {
@@ -21,18 +21,18 @@ export default function ResponsiveNavbar() {
   }, [windowSize]);
 
   return isResponsiveNavbarOpen ? (
-    <div className="size-full md:hidden flex flex-col fixed font-[family-name:var(--font-orienta-sans)] z-40">
+    <div className="size-full md:hidden flex flex-col fixed font-[family-name:var(--font-orienta-sans)] z-40 overflow-hidden bg-[#0a0a0a] bg-[url(../../public/background.png)]">
       <NavLink
         title="About"
         link="about-section"
         onClick={() => dispatch(closeNavbar())}
-        extraClass={cssString}
+        extraClass={fullNavClasses}
       />
       <NavLink
         title="Skills"
         link="skills-section"
         onClick={() => dispatch(closeNavbar())}
-        extraClass={cssString}
+        extraClass={fullNavClasses}
       />
       <div className="flex justify-center h-20 items-center">
         <Link href={'https://github.com/ciaran-m-98'} target="_blank">

@@ -17,10 +17,18 @@ export function NavLink({
   const dispatch = useAppDispatch();
   const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
   function handleTitleClick(): void {
+    if (link === 'main-section') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
     const targetElement: HTMLElement | null = document.getElementById(link);
     if (!targetElement) {
       return;
     }
+
     targetElement.scrollIntoView({ behavior: 'smooth' });
     if (isResponsiveNavbarOpen) {
       dispatch(closeNavbar());
