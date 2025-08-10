@@ -3,12 +3,14 @@ export default function AboutUi() {
     <div className="flex flex-col justify-center align-center size-full tablet:w-[800px] m-auto gap-32">
       <div className="w-full flex flex-col gap-6 items-center">
         <h1 className="text-4xl text-center">About Me</h1>
-        <div className="bg-[#FFBF00] w-20 h-1 rounded-md"/>
+        <div className="bg-[#FFBF00] w-20 h-1 rounded-md" />
       </div>
-      <div className="w-[600px] flex flex-col gap-16">
-        <h2 className="text-5xl">Ciaran Melarkey</h2>
-        <h3 className="text-4xl">Front-end Developer</h3>
-        <p className="text-wrap  text-2xl">
+      <div className="flex flex-col gap-8">
+        <div>
+          <h2 className="tablet:text-5xl text-3xl mx-4">Ciaran Melarkey</h2>
+          <h3 className="tablet:text-4xl text-2xl mx-4">Front-end Developer</h3>
+        </div>
+        <p className="tablet:text-2xl text-l mx-4">
           Hi I'm Ciarán. A front-end developer with a bachelor's in computer
           science who develops and maintains web applications and has more than
           3 years of experience in the area. I mostly work with React, but I've

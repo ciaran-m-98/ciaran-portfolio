@@ -10,9 +10,8 @@ export default function PageSection({
   return (
     <div
       id={sectionId}
-      className="h-[calc(100vh-80px)] w-screen"
+      className=" w-screen"
     >
-
       {children}
     </div>
   );

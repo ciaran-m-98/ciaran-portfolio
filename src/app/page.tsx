@@ -2,6 +2,7 @@ import PageSection from '@/ui/PageSection';
 import HomeUi from '@/ui/home/HomeUi';
 import SkillsUi from '@/ui/skills/SkillsUi';
 import AboutUi from '@/ui/About/AboutUi';
+import PageDivider from '@/ui/PageDivider';
 export default function Home() {
   return (
     <div
@@ -11,6 +12,7 @@ export default function Home() {
       <PageSection sectionId="home-section">
         <HomeUi />
       </PageSection>
+      <PageDivider />
       <PageSection sectionId="about-section">
         <AboutUi />
       </PageSection>
