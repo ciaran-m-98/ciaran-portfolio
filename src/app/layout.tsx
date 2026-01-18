@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Roboto, Orienta } from 'next/font/google';
 import Navbar from '@/ui/navbar/Navbar';
 import ResponsiveNavbar from '@/ui/navbar/ResponsiveNavbar';
 import StoreProvider from './StoreProvider';
+import Footer from '@/ui/footer/Footer';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 
 const roboto = Roboto({
   variable: '--font-roboto-sans',
-  weight: '400',
+  weight: ['200', '400'],
   subsets: ['latin'],
 });
 
@@ -27,8 +28,8 @@ const orienta = Orienta({
   subsets: ['latin'],
 });
 export const metadata: Metadata = {
-  title: 'Ciarán Melarkey',
-  description: 'Ciarán Melarkey Portfolio',
+  title: 'Ciarán Melarkey - Portfolio',
+  description: 'Ciarán Melarkey - Portfolio',
 };
 
 export default function RootLayout({
@@ -45,6 +46,7 @@ export default function RootLayout({
           <Navbar />
           <ResponsiveNavbar />
           {children}
+          <Footer />
         </body>
       </html>
     </StoreProvider>

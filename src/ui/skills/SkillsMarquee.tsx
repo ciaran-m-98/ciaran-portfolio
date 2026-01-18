@@ -33,7 +33,7 @@ export default function SkillsMarquee() {
             alt={`${skill} logo`}
             className={cx({
               'dark:invert': invertSkillInDarkMode.includes(skill),
-            }, 'grayscale')}
+            })}
             width={width > 960 ? 120 : 80}
             height={width > 960 ? 120 : 80}
             priority

@@ -24,7 +24,7 @@ export default function Navbar() {
   const num = useScrollPosition();
   const [isScrollAtTop, setIsScrollAtTop] = useState<boolean>(true);
   useEffect(() => {
-    if (num === 0) {
+    if (num <= 72) {
       setIsScrollAtTop(true);
     } else {
       setIsScrollAtTop(false);
@@ -38,7 +38,7 @@ export default function Navbar() {
       className={cx(
         'w-full h-24 flex flex-row px-2 justify-between items-center sticky top-0 z-50 font-[family-name:var(--font-orienta-sans)] tablet:px-[20%] bg-[url(../../public/background.png)]',
         { 'border-none bg-none bg-transparent': isScrollAtTop },
-        { 'backdrop-blur-md tablet:bg-[#0a0a0ae0] bg-[#0a0a0a]': !isScrollAtTop }
+        { 'backdrop-blur-md tablet:bg-[#0a0a0ae0] bg-[#0a0a0a] border-b border-zinc-700': !isScrollAtTop }
       )}
     >
       <div>
