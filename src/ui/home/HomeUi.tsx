@@ -1,21 +1,24 @@
 import RotatingText from '../blocks/TextAnimations/RotatingText/RotatingText';
 export default function HomeUi() {
   return (
-    <div className="flex flex-col h-full justify-evenly">
-      <div className="flex flex-col items-center gap-4">
-        <h1 className="text-2xl tablet:text-4xl flex gap-3">
-          <div className="w-20 flex justify-end">
+    <div className="flex flex-col w-full p-4">
+      <div className="flex flex-col gap-4 justify-items-start">
+        <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-xl flex lg:gap-10 gap-4 w-full font-semibold">
+          <span>Hey, I'm</span>
+          <span className="text-green-400">
             <RotatingText
-              texts={['Hello!', 'Hola!', 'Hej!', 'Hallo!']}
+              texts={[
+                'Ciaran!',
+                'a Software Developer!',
+                'a Frontend Specialist!',
+                'a Tech Enthusiast!',
+              ]}
               rotationInterval={2000}
             />
-          </div>
-          <span>I'm</span>
-          <span className="text-[#FFBF00]">Ciaran</span>
+          </span>
         </h1>
-        <h2 className="text-3xl tablet:text-5xl flex gap-3">
-          <span>I'm a</span>
-          <span className="text-[#FFBF00]">Software Developer</span>
+        <h2 className="lg:text-xl md:text-lg sm:text-sm text-xs sm:w-3/4 w-full font-thin">
+          I'm a Software Engineer at Solera Inc. focused developing.....
         </h2>
       </div>
     </div>

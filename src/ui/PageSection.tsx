@@ -10,7 +10,7 @@ export default function PageSection({
   extraClass?: string;
 }) {
   return (
-    <div id={sectionId} className={cx(' w-screen', extraClass )}>
+    <div id={sectionId} className={cx('', extraClass )}>
       {children}
     </div>
   );

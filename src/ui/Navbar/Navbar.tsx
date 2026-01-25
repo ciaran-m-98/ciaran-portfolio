@@ -6,15 +6,16 @@ import {
   useAppDispatch,
   useAppSelector,
   useScrollPosition,
+  useTheme,
 } from '@/service/hooks';
 import {
   selectNavbarIsOpen,
   toggleNavbar,
+  closeNavbar,
 } from '@/app/features/navbar/navbarSlide';
 import '../../app/globals.css';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
-
 export default function Navbar() {
   const dispatch = useAppDispatch();
   const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
@@ -32,39 +33,41 @@ export default function Navbar() {
   }, [num]);
   const cx = classNames;
 
-  const linkClass = 'text-xl';
   return (
     <nav
       className={cx(
-        'w-full h-24 flex flex-row px-2 justify-between items-center sticky top-0 z-50 font-[family-name:var(--font-orienta-sans)] tablet:px-[20%] bg-[url(../../public/background.png)]',
-        { 'border-none bg-none bg-transparent': isScrollAtTop },
-        { 'backdrop-blur-md tablet:bg-[#0a0a0ae0] bg-[#0a0a0a] border-b border-zinc-700': !isScrollAtTop }
+        'sticky top-0 w-full h-16 flex flex-row px-2 justify-between items-center z-50 border-b border-green-400',
+        {
+          'backdrop-blur-md': !isScrollAtTop,
+          'border-b-[0px]': isResponsiveNavbarOpen,
+        },
       )}
     >
       <div>
         <NavLink
           title="Ciaran Melarkey"
           link="main-section"
-          extraClass={'text-2xl'}
+          extraClass={'text-xl'}
+          onClick={() => dispatch(closeNavbar())}
         />
       </div>
-      <div className="hidden tablet:flex gap-8">
-        <NavLink title="About" link="about-section" extraClass={linkClass} />
-        <NavLink title="Skills" link="skills-section" extraClass={linkClass} />
+      <div className="hidden md:flex gap-8">
+        <NavLink title="About" link="about-section" />
+        <NavLink title="Skills" link="skills-section" />
         <div className="flex justify-center items-center">
           <Link href={'https://github.com/ciaran-m-98'} target="_blank">
             <Image
               className="dark:invert"
               src={'/github-mark.svg'}
               alt={'Github Link'}
-              width={30}
-              height={30}
+              width={24}
+              height={24}
               priority
             />
           </Link>
         </div>
       </div>
-      <div className="flex tablet:hidden justify-center items-center">
+      <div className="flex md:hidden justify-center items-center">
         <button onClick={() => handleNavbarState()}>
           <Image
             className="dark:invert"

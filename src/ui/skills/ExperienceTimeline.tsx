@@ -1,43 +1,57 @@
+import EventLine from "./EventLine"
+import { Skill } from "./constants"
 export default function ExperienceTimeline({
   position,
   company,
   time,
   location,
   description,
-  topLineVisible = true,
-  bottomLineVisible = true,
+  skills,
+  isFirst = false,
+  isLast = false,
 }: {
-  position: string;
-  company: string;
-  time: string;
-  location: string;
-  description?: string;
-  topLineVisible?: boolean;
-  bottomLineVisible?: boolean;
+  position: string
+  company: string
+  time: string
+  location: string
+  description?: string
+  skills: Array<Skill>
+  isFirst?: boolean
+  isLast?: boolean
 }) {
+  const id = position.toLowerCase().replace(/\s+/g, "-")
   return (
-    <div className="flex flex-row items-center gap-2">
-      <div className="flex flex-col justify-center items-center w-20 gap-2">
-        {topLineVisible ? (
-          <div className="w-1 bg-zinc-400 h-40" />
-        ) : (
-          <div className="w-1 h-20" />
-        )}
-        <div className="rounded-[50%] border-2 border-[#FFBF00] h-4 w-4" />
-        {bottomLineVisible ? (
-          <div className="w-1 bg-zinc-400 h-40" />
-        ) : (
-          <div className="w-1 h-20" />
-        )}
-      </div>
-      <div className="flex flex-col gap-1 justify-center border-2 rounded-md border-zinc-400 w-72">
-        <span className="font-extralight border-b-2 p-2">{position}</span>
-        <span className="font-extralight border-b-2 p-2">{company}</span>
-        {description && <span className="font-extralight border-b-2 p-2">{description}</span>} 
-        <span className="font-extralight p-2">
+    <div className="flex flex-row items-center justify-center">
+      <EventLine isFirst={isFirst} isLast={isLast} id={id} />
+      <div
+        className="flex flex-col justify-center border rounded-md border-zinc-800 border-l-4 border-l-green-400 w-full p-2 gap-2"
+        id={id}
+      >
+        <span className="text-lg font-medium">
+          {position} &#183; {company}
+        </span>
+
+        <span className="text-md font-light text-green-400">
           {time} &#183; {location}
         </span>
+
+        {description && (
+          <span className="font-extralight text-sm">{description}</span>
+        )}
+
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))] gap-2">
+          {skills.length > 0 &&
+            skills.map(({name, color}, index) => (
+              <span
+                key={index}
+                className="text-xs font-light border rounded-md p-1 text-center"
+                style={{ backgroundColor: `${color}1A`, borderColor: color }}
+              >
+                {name}
+              </span>
+            ))}
+        </div>
       </div>
     </div>
-  );
+  )
 }

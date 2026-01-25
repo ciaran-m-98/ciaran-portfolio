@@ -1,48 +1,48 @@
-import { useAppDispatch, useAppSelector } from '@/service/hooks';
+import { useAppDispatch, useAppSelector } from "@/service/hooks"
 import {
   closeNavbar,
   selectNavbarIsOpen,
-} from '@/app/features/navbar/navbarSlide';
+} from "@/app/features/navbar/navbarSlide"
 export function NavLink({
   link,
   title,
   onClick,
   extraClass,
 }: {
-  link: string;
-  title: string;
-  onClick?: () => void;
-  extraClass?: string;
+  link: string
+  title: string
+  onClick?: () => void
+  extraClass?: string
 }) {
-  const dispatch = useAppDispatch();
-  const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
+  const dispatch = useAppDispatch()
+  const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen)
   function handleTitleClick(): void {
-    if (link === 'main-section') {
+    if (link === "main-section") {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth',
-      });
-      return;
+        behavior: "smooth",
+      })
+      return
     }
-    const targetElement: HTMLElement | null = document.getElementById(link);
+    const targetElement: HTMLElement | null = document.getElementById(link)
     if (!targetElement) {
-      return;
+      return
     }
 
-    targetElement.scrollIntoView({ behavior: 'smooth' });
+    targetElement.scrollIntoView({ behavior: "smooth" })
     if (isResponsiveNavbarOpen) {
-      dispatch(closeNavbar());
+      dispatch(closeNavbar())
     }
   }
   function handleClickEvents() {
     if (onClick) {
-      onClick();
+      onClick()
     }
-    handleTitleClick();
+    handleTitleClick()
   }
   return (
-    <button className={extraClass} onClick={handleClickEvents}>
+    <button className={`font-semibold tracking-wider ${extraClass}`} onClick={handleClickEvents}>
       {title}
     </button>
-  );
+  )
 }

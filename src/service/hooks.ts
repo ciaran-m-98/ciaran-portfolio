@@ -60,3 +60,29 @@ export const useScrollPosition = (): number => {
 export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
 export const useAppSelector = useSelector.withTypes<RootState>();
 export const useAppStore = useStore.withTypes<AppStore>();
+
+export const useTheme = (): 'light' | 'dark' => {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  useLayoutEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const applyTheme = (isDarkMode: boolean) => {
+      setTheme(isDarkMode ? 'dark' : 'light');
+    };
+
+    applyTheme(darkModeMediaQuery.matches);
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      applyTheme(event.matches);
+    };
+
+    darkModeMediaQuery.addEventListener('change', handleChange);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
+
+  return theme;
+}

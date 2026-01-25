@@ -1,40 +1,57 @@
 'use client';
-import { useAppDispatch, useAppSelector, useWindowSize } from '@/service/hooks';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useWindowSize,
+  useScrollPosition,
+} from '@/service/hooks';
 import { NavLink } from './NavLink';
 import {
   closeNavbar,
   selectNavbarIsOpen,
 } from '@/app/features/navbar/navbarSlide';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import classNames from 'classnames';
+
 export default function ResponsiveNavbar() {
   const dispatch = useAppDispatch();
   const windowSize = useWindowSize();
   const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
-  const fullNavClasses = 'text-xl text-start pl-5 h-20';
 
   useEffect(() => {
     if (windowSize.width > 960) {
       dispatch(closeNavbar());
     }
   }, [windowSize]);
-
+  const num = useScrollPosition();
+  const [isScrollAtTop, setIsScrollAtTop] = useState<boolean>(true);
+  useEffect(() => {
+    if (num <= 72) {
+      setIsScrollAtTop(true);
+    } else {
+      setIsScrollAtTop(false);
+    }
+  }, [num]);
+  const cx = classNames;
   return isResponsiveNavbarOpen ? (
-    <div className="size-full md:hidden flex flex-col fixed font-[family-name:var(--font-orienta-sans)] z-40 overflow-hidden bg-[#0a0a0a] bg-[url(../../public/background.png)]">
+    <div
+      className={
+        'md:hidden flex flex-col fixed z-40 overflow-hidden h-48 w-full border-b border-green-400 backdrop-blur-md p-6 gap-8'
+      }
+    >
       <NavLink
         title="About"
         link="about-section"
         onClick={() => dispatch(closeNavbar())}
-        extraClass={fullNavClasses}
       />
       <NavLink
         title="Skills"
         link="skills-section"
         onClick={() => dispatch(closeNavbar())}
-        extraClass={fullNavClasses}
       />
-      <div className="flex justify-center h-20 items-center">
+      <div className="flex justify-center h-12 items-center">
         <Link href={'https://github.com/ciaran-m-98'} target="_blank">
           <Image
             className="dark:invert"
