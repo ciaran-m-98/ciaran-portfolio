@@ -1,15 +1,19 @@
-import ExperienceTimeline from "./ExperienceTimeline"
-import SkillsMarquee from "./SkillsMarquee"
-import { EXPERIENCES } from "./constants"
+import ExperienceTimeline from './ExperienceTimeline';
+import SkillsMarquee from './SkillsMarquee';
+import { EXPERIENCES } from './constants';
 
 export default function SkillsUi() {
   return (
     <div className="flex flex-col justify-center items-start size-full gap-8">
-      <div className="w-full flex flex-col gap-6 items-center w-full">
-        <h1 className="text-4xl text-center">Skills & Experience</h1>
-        <div className="bg-green-400 w-40 h-1 rounded-md" />
+      <div className="w-full flex flex-col gap-6 items-center">
+        <h1
+          className="text-3xl text-center underline decoration-green-400 underline-offset-8 decoration-4"
+          id="skills-section-title"
+        >
+          Skills & Experience
+        </h1>
       </div>
-      <div className="flex flex-col w-full pr-8">
+      <div className="flex flex-col w-full pr-2">
         <span className="w-full text-center font-light">
           Here's a timeline of my prior experience and education!
         </span>
@@ -39,5 +43,5 @@ export default function SkillsUi() {
         <SkillsMarquee />
       </div>*/}
     </div>
-  )
+  );
 }

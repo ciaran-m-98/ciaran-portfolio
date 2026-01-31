@@ -13,7 +13,7 @@ export default function HomeUi() {
                 'a Frontend Specialist!',
                 'a Tech Enthusiast!',
               ]}
-              rotationInterval={2000}
+              rotationInterval={3500}
             />
           </span>
         </h1>

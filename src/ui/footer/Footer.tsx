@@ -1,21 +1,20 @@
 'use client';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { useTheme } from '@/service/hooks';
 import classNames from 'classnames';
 export default function Footer() {
-  const theme = useTheme();
   const cx = classNames;
-  const [selectedTheme, setSelectedTheme] = useState<string>('theme-device');
+  const [selectedTheme, setSelectedTheme] = useState<string>('system');
+
   useEffect(() => {
     handleThemeChange(selectedTheme);
-  }, [theme]);
+  }, [selectedTheme]);
 
   const handleThemeChange = (theme: string) => {
     document.documentElement.classList.remove('light', 'dark');
-    if (theme === 'theme-light') {
+    if (theme === 'light') {
       document.documentElement.classList.add('light');
-    } else if (theme === 'theme-dark') {
+    } else if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       const prefersDark = window.matchMedia(
@@ -31,19 +30,18 @@ export default function Footer() {
 
   return (
     <div className="flex flex-row h-16 justify-between flex-wrap items-center p-4 border-t border-green-400">
-      <div className="rounded-3xl dark:bg-zinc-700 w-auto h-8 flex flex-row justify-around items-center px-1">
+      <div className="rounded-3xl bg-neutral-100 dark:bg-zinc-700 w-auto h-8 flex flex-row justify-around items-center px-1">
         <span
           className={cx(
-            'rounded-3xl w-7 h-7 block flex items-center justify-center',
+            'rounded-3xl w-7 h-7 flex items-center justify-center',
             {
-              'dark:!bg-zinc-900 !bg-stone-100':
-                selectedTheme === 'theme-device',
+              'dark:!bg-zinc-900 !bg-[#ffffff]': selectedTheme === 'system',
             },
           )}
           id="theme-device"
           onClick={() => {
-            setSelectedTheme('theme-device');
-            handleThemeChange('theme-device');
+            setSelectedTheme('system');
+            handleThemeChange('system');
           }}
         >
           <Image
@@ -56,16 +54,15 @@ export default function Footer() {
         </span>
         <span
           className={cx(
-            'rounded-3xl w-7 h-7 block flex items-center justify-center',
+            'rounded-3xl w-7 h-7 flex items-center justify-center',
             {
-              'dark:!bg-zinc-900 !bg-stone-100':
-                selectedTheme === 'theme-light',
+              'dark:!bg-zinc-900 !bg-[#ffffff]': selectedTheme === 'light',
             },
           )}
           id="theme-light"
           onClick={() => {
-            setSelectedTheme('theme-light');
-            handleThemeChange('theme-light');
+            setSelectedTheme('light');
+            handleThemeChange('light');
           }}
         >
           <Image
@@ -78,16 +75,15 @@ export default function Footer() {
         </span>
         <span
           className={cx(
-            'rounded-3xl w-7 h-7 block flex items-center justify-center',
+            'rounded-3xl w-7 h-7 flex items-center justify-center',
             {
-              'dark:!bg-zinc-900 !bg-stone-100':
-                selectedTheme === 'theme-dark',
+              'dark:!bg-zinc-900 !bg-[#ffffff]': selectedTheme === 'dark',
             },
           )}
           id="theme-dark"
           onClick={() => {
-            setSelectedTheme('theme-dark');
-            handleThemeChange('theme-dark');
+            setSelectedTheme('dark');
+            handleThemeChange('dark');
           }}
         >
           <Image

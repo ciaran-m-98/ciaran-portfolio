@@ -11,7 +11,6 @@ const jetBrainsMono = JetBrains_Mono({
   subsets: ['latin'],
 });
 
-
 const orienta = Orienta({
   variable: '--font-orienta-sans',
   weight: '400',
