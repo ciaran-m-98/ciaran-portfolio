@@ -10,15 +10,11 @@ type windowSize = {
 type windowSizeHook = windowSize;
 
 export const useWindowSize = (): windowSizeHook => {
-  if (typeof window === 'undefined') {
-    return {
-      width: 0,
-      height: 0,
-    };
-  }
+  const isClient = typeof window !== 'undefined';
+
   const initialWindowSize: windowSize = {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: isClient ? window.innerWidth : 0,
+    height: isClient ? window.innerHeight : 0,
   };
 
   const [windowSize, setWindowSize] = useState<windowSize>(initialWindowSize);
@@ -31,12 +27,14 @@ export const useWindowSize = (): windowSizeHook => {
   };
 
   useLayoutEffect(() => {
+    if (!isClient) return;
+
     handleSize();
 
     window.addEventListener('resize', handleSize);
 
     return () => window.removeEventListener('resize', handleSize);
-  }, []);
+  }, [isClient]);
 
   return windowSize;
 };

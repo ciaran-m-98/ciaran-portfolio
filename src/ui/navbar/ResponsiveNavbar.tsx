@@ -23,7 +23,7 @@ export default function ResponsiveNavbar() {
     if (windowSize.width > 767) {
       dispatch(closeNavbar());
     }
-  }, [windowSize]);
+  }, [windowSize, dispatch]);
 
   const cx = classNames;
   const [mounted, setMounted] = useState(false);

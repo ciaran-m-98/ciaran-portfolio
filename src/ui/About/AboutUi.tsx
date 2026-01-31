@@ -16,9 +16,9 @@ export default function AboutUi() {
           <h3 className="text-xl mx-4 text-center">Front-end Developer</h3>
         </div>
         <p className="text-sm mx-4 font-extralight text-justify">
-          Hi I'm Ciarán. A front-end developer with a bachelor's in computer
+          Hi I&apos;m Ciarán. A front-end developer with a bachelor&apos;s in computer
           science who develops and maintains web applications and has more than
-          3 years of experience in the area. I mostly work with React, but I've
+          3 years of experience in the area. I mostly work with React, but I&apos;ve
           also used Vue and Angular in the past. I also have some experience
           with working with Back-end technologies such as Java and Express.
         </p>

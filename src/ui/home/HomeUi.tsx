@@ -4,7 +4,7 @@ export default function HomeUi() {
     <div className="flex flex-col w-full p-4">
       <div className="flex flex-col gap-4 justify-items-start">
         <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-xl flex lg:gap-10 gap-4 w-full font-semibold">
-          <span>Hey, I'm</span>
+          <span>Hey, I&apos;m</span>
           <span className="text-green-400">
             <RotatingText
               texts={[
@@ -18,7 +18,7 @@ export default function HomeUi() {
           </span>
         </h1>
         <h2 className="lg:text-xl md:text-lg sm:text-sm text-xs sm:w-3/4 w-full font-thin">
-          I'm a Software Engineer at Solera Inc. focused developing.....
+          I&apos;m a Software Engineer at Solera Inc. focused developing.....
         </h2>
       </div>
     </div>

@@ -1,5 +1,4 @@
 import ExperienceTimeline from './ExperienceTimeline';
-import SkillsMarquee from './SkillsMarquee';
 import { EXPERIENCES } from './constants';
 
 export default function SkillsUi() {
@@ -15,7 +14,7 @@ export default function SkillsUi() {
       </div>
       <div className="flex flex-col w-full pr-2">
         <span className="w-full text-center font-light">
-          Here's a timeline of my prior experience and education!
+          Here&apos;s a timeline of my prior experience and education!
         </span>
         {EXPERIENCES.map(
           (
