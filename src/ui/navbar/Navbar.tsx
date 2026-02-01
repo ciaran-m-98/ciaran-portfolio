@@ -6,6 +6,7 @@ import {
   useAppDispatch,
   useAppSelector,
   useScrollPosition,
+  useWindowSize,
 } from '@/service/hooks';
 import {
   selectNavbarIsOpen,
@@ -16,6 +17,7 @@ import '../../app/globals.css';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 export default function Navbar() {
+  const windowSize = useWindowSize();
   const dispatch = useAppDispatch();
   const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
   const handleNavbarState = () => {
@@ -37,6 +39,7 @@ export default function Navbar() {
       className={cx(
         'sticky top-0 w-full h-16 flex px-2 dark:bg-zinc-900 bg-white z-50',
         {
+          'border-b border-green-400': windowSize.width > 767,
           'backdrop-blur-md': !isScrollAtTop,
           'border-b-0': isResponsiveNavbarOpen,
         },
