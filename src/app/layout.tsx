@@ -30,7 +30,7 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en">
         <body
-          className={`antialiased ${orienta.variable} ${jetBrainsMono.variable} max-w-6xl m-auto font-[family-name:var(--font-jetbrains-mono)]`}
+          className={`antialiased ${orienta.variable} ${jetBrainsMono.variable} max-w-6xl m-auto font-[family-name:var(--font-jetbrains-mono)] overscroll-none overflow-scroll`}
         >
           <Navbar />
           <ResponsiveNavbar />
