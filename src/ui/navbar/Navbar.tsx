@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <nav
       className={cx(
-        'sticky top-0 w-full h-16 flex px-2 dark:bg-zinc-900 md:bg-transparent z-50',
+        'sticky top-0 w-full h-16 flex px-2 dark:bg-zinc-900 bg-white z-50',
         {
           'backdrop-blur-md': !isScrollAtTop,
           'border-b-0': isResponsiveNavbarOpen,
