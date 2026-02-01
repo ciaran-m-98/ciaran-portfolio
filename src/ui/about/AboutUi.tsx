@@ -1,7 +1,7 @@
 import ContactLink from './ContatctLink';
 export default function AboutUi() {
   return (
-    <div className="flex flex-col justify-center items-center size-full m-auto gap-12">
+    <div className="flex flex-col justify-center size-full gap-12">
       <div className="w-full flex flex-col gap-6 items-center">
         <h1
           className="text-3xl text-center underline decoration-green-400 underline-offset-8 decoration-4"

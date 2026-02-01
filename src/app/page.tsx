@@ -12,10 +12,7 @@ export default function Home() {
         <HomeUi />
       </PageSection>
 
-      <PageSection
-        sectionId="about-section"
-        extraClass="min-h-[calc(80vh)] flex items-center justify-center"
-      >
+      <PageSection sectionId="about-section" extraClass="flex justify-center">
         <AboutUi />
       </PageSection>
       <PageSection

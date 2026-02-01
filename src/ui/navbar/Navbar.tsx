@@ -32,6 +32,10 @@ export default function Navbar() {
       setIsScrollAtTop(false);
     }
   }, [num]);
+  const [mounted, setMounted] = useState<boolean>(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const cx = classNames;
 
   return (
@@ -39,7 +43,7 @@ export default function Navbar() {
       className={cx(
         'sticky top-0 w-full h-16 flex px-2 dark:bg-zinc-900 bg-white z-50',
         {
-          'border-b border-green-400': windowSize.width > 767,
+          'border-b border-green-400': mounted && windowSize.width > 767,
           'backdrop-blur-md': !isScrollAtTop,
           'border-b-0': isResponsiveNavbarOpen,
         },

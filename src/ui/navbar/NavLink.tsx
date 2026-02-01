@@ -18,6 +18,11 @@ export function NavLink({
   const dispatch = useAppDispatch();
   const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
   function handleTitleClick(): void {
+    const navElement = document.querySelector('nav');
+    const headerHeight: number = navElement
+      ? (navElement.getBoundingClientRect().height ?? 0)
+      : 0;
+
     if (link === 'main-section') {
       window.scrollTo({
         top: 0,
@@ -25,6 +30,7 @@ export function NavLink({
       });
       return;
     }
+
     const targetElement: HTMLElement | null = document.getElementById(
       `${link}-title`,
     );
@@ -35,20 +41,16 @@ export function NavLink({
 
     const rect = targetElement.getBoundingClientRect();
     const elementTop: number = rect.top + window.pageYOffset;
-    const elementHeight: number = rect.height ?? 0;
-    const viewportHeight: number = window.innerHeight;
-
-    let offsetPosition: number = Math.round(
-      elementTop - viewportHeight / 2 + elementHeight / 2,
-    );
+    const offsetPosition: number = Math.round(elementTop - 96);
 
     const maxScroll: number =
       document.documentElement.scrollHeight - window.innerHeight;
-    if (offsetPosition < 0) offsetPosition = 0;
-    if (offsetPosition > maxScroll) offsetPosition = maxScroll;
+    let finalPosition: number = offsetPosition;
+    if (finalPosition < 0) finalPosition = 0;
+    if (finalPosition > maxScroll) finalPosition = maxScroll;
 
     window.scrollTo({
-      top: offsetPosition,
+      top: finalPosition,
       behavior: 'smooth',
     });
 
