@@ -18,7 +18,9 @@ export default function HomeUi() {
           </span>
         </h1>
         <h2 className="lg:text-xl md:text-lg sm:text-sm text-xs sm:w-3/4 w-full font-thin">
-          I&apos;m a Software Engineer at Solera Inc. focused developing.....
+          I&apos;m a Software Engineer at Solera Inc. focused developing scalable
+          frontend applications with a passion for creating engaging user
+          experiences.
         </h2>
       </div>
     </div>

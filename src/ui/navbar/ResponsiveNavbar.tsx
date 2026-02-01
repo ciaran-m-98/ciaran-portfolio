@@ -1,9 +1,5 @@
 'use client';
-import {
-  useAppDispatch,
-  useAppSelector,
-  useWindowSize,
-} from '@/service/hooks';
+import { useAppDispatch, useAppSelector, useWindowSize } from '@/service/hooks';
 import { NavLink } from './NavLink';
 import {
   closeNavbar,
