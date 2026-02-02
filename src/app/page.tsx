@@ -7,7 +7,7 @@ export default function Home() {
     <div id="main-section" className="flex flex-col">
       <PageSection
         sectionId="home-section"
-        extraClass="min-h-[calc(100vh-4rem)] flex items-center justify-center"
+        extraClass="h-[700px]"
       >
         <HomeUi />
       </PageSection>
