@@ -40,10 +40,11 @@ export default function ExperienceTimeline({
         <span className="text-md font-light text-black">{location}</span>
 
         {description && (
-          <span className="font-extralight text-xs text-black">
+          <span className="font-extralight text-sm text-black">
             {description}
           </span>
         )}
+        <span className="text-xs font-light text-black w-full md:hidden">{time}</span>
       </div>
       <EventLine isFirst={isFirst} isLast={isLast} id={id} type={type} />
       <div

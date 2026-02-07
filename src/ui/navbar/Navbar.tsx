@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <nav
       className={cx(
-        'sticky top-0 w-full h-16 flex bg-transparent md:dark:bg-zinc-900 md:bg-white md:shadow-lg',
+        'sticky top-0 w-full h-16 flex bg-transparent md:dark:bg-zinc-900 md:bg-white md:shadow-lg z-10',
         {
           'border-b border-green-400': mounted && windowSize.width > 767,
         },

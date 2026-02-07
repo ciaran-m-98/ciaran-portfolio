@@ -1,4 +1,3 @@
-import RotatingText from "../blocks/TextAnimations/RotatingText/RotatingText"
 import Image from "next/image"
 import Link from "next/link"
 export default function HomeUi() {
@@ -18,11 +17,21 @@ export default function HomeUi() {
                 priority
               />
             </Link>
-            <Link href={"https://github.com/ciaran-m-98"} target="_blank">
+            <Link href={"https://www.linkedin.com/in/ciaran-melarkey-694469194/"} target="_blank">
               <Image
                 className="dark:invert"
                 src={"/linkedin-mark.svg"}
                 alt={"LinkedIn Link"}
+                width={30}
+                height={30}
+                priority
+              />
+            </Link>
+            <Link href={'/CiaranMelarkeyCV.pdf'} target="_blank">
+              <Image
+                className="dark:invert"
+                src={'/document.svg'}
+                alt={'CV Link'}
                 width={30}
                 height={30}
                 priority
