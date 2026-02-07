@@ -4,6 +4,7 @@ import { NavLink } from './NavLink';
 import {
   closeNavbar,
   selectNavbarIsOpen,
+  toggleNavbar,
 } from '@/app/features/navbar/navbarSlide';
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
@@ -46,10 +47,13 @@ export default function ResponsiveNavbar() {
     }
   }, [windowSize.width, isResponsiveNavbarOpen]);
 
+  const handleNavbarState = () => {
+    dispatch(toggleNavbar(!isResponsiveNavbarOpen));
+  };
   return (
     <div
       className={cx(
-        'md:hidden flex flex-col items-start p-4 justify-start overflow-hidden h-[300px] w-full gap-8 bg-white dark:bg-zinc-900 z-10 fixed translate-y-[-300px] border-b border-green-400',
+        'md:hidden flex flex-col items-start p-4 justify-start overflow-hidden h-[300px] w-full gap-8 bg-white dark:bg-zinc-900 z-40 translate-y-[-300px] border-b border-green-400 static',
         {
           slideAnimation: animate && isResponsiveNavbarOpen,
           closeAnimation: animate && !isResponsiveNavbarOpen,
@@ -77,6 +81,21 @@ export default function ResponsiveNavbar() {
             priority
           />
         </Link>
+      </div>
+      <div className="flex md:hidden justify-center items-center absolute bottom-3 right-4">
+        <button onClick={() => handleNavbarState()}>
+          <Image
+            className={cx('dark:invert', {
+              rotateAnimation: animate && isResponsiveNavbarOpen,
+              reverseRotateAnimation: animate && !isResponsiveNavbarOpen,
+            })}
+            src={'/chevron-down.svg'}
+            alt={'Open / Close Menu'}
+            width={30}
+            height={30}
+            priority
+          />
+        </button>
       </div>
     </div>
   );

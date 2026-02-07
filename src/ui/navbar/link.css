@@ -36,7 +36,6 @@ li button:hover::after {
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
-
 @keyframes slideDown {
   0% {
     transform: translateY(-300px);
@@ -58,5 +57,34 @@ li button:hover::after {
   }
   100% {
     transform: translateY(-300px);
+  }
+}
+
+.rotateAnimation {
+  animation-name: rotate;
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+.reverseRotateAnimation {
+  animation-name: reverseRotate;
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes reverseRotate {
+  0% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }

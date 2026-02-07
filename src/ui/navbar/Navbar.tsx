@@ -4,34 +4,17 @@ import Image from 'next/image';
 import { NavLink } from './NavLink';
 import {
   useAppDispatch,
-  useAppSelector,
   useScrollPosition,
   useWindowSize,
 } from '@/service/hooks';
-import {
-  selectNavbarIsOpen,
-  toggleNavbar,
-  closeNavbar,
-} from '@/app/features/navbar/navbarSlide';
 import '../../app/globals.css';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 export default function Navbar() {
   const windowSize = useWindowSize();
   const dispatch = useAppDispatch();
-  const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
-  const handleNavbarState = () => {
-    dispatch(toggleNavbar(!isResponsiveNavbarOpen));
-  };
+
   const num = useScrollPosition();
-  const [isScrollAtTop, setIsScrollAtTop] = useState<boolean>(true);
-  useEffect(() => {
-    if (num <= 72) {
-      setIsScrollAtTop(true);
-    } else {
-      setIsScrollAtTop(false);
-    }
-  }, [num]);
   const [mounted, setMounted] = useState<boolean>(false);
   useEffect(() => {
     setMounted(true);
@@ -41,7 +24,7 @@ export default function Navbar() {
   return (
     <nav
       className={cx(
-        'sticky top-0 w-full h-16 flex bg-transparent md:dark:bg-zinc-900 md:bg-white z-50 md:shadow-lg',
+        'sticky top-0 w-full h-16 flex bg-transparent md:dark:bg-zinc-900 md:bg-white md:shadow-lg',
         {
           'border-b border-green-400': mounted && windowSize.width > 767,
         },
@@ -58,29 +41,17 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="flex justify-center items-center">
-            <Link href={"https://github.com/ciaran-m-98"} target="_blank">
+            <Link href={'https://github.com/ciaran-m-98'} target="_blank">
               <Image
                 className="dark:invert"
-                src={"/github-mark.svg"}
-                alt={"Github Link"}
+                src={'/github-mark.svg'}
+                alt={'Github Link'}
                 width={24}
                 height={24}
                 priority
               />
             </Link>
           </div>
-        </div>
-        <div className="flex md:hidden justify-center items-center">
-          <button onClick={() => handleNavbarState()}>
-            <Image
-              className="dark:invert"
-              src={isResponsiveNavbarOpen ? "/menu-open.svg" : "/menu.svg"}
-              alt={"Open / Close Menu"}
-              width={30}
-              height={30}
-              priority
-            />
-          </button>
         </div>
       </div>
     </nav>
