@@ -4,10 +4,10 @@
 
 .dark {
   --background: #18181b;
-  --foreground: #f7ffff;
+  --foreground: #ffffff;
 }
 .light {
-  --background: #f7ffff;
+  --background: #ffffff;
   --foreground: #18181b;
 }
 

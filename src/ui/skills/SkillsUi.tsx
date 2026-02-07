@@ -3,22 +3,22 @@ import { EXPERIENCES } from './constants';
 
 export default function SkillsUi() {
   return (
-    <div className="flex flex-col justify-center items-start size-full gap-8">
-      <div className="w-full flex flex-col gap-6 items-center">
+    <div className="flex flex-col items-start size-full gap-8 max-w-7xl">
+      <div className="w-full flex flex-col gap-6">
         <h1
-          className="text-3xl text-center underline decoration-green-400 underline-offset-8 decoration-4"
+          className="text-3xl underline decoration-green-400 underline-offset-8 decoration-4"
           id="skills-section-title"
         >
-          Skills & Experience
+          History
         </h1>
-      </div>
-      <div className="flex flex-col w-full pr-2">
-        <span className="w-full text-center font-light">
+        <span className="w-full font-light">
           Here&apos;s a timeline of my prior experience and education!
         </span>
+      </div>
+      <div className="flex flex-col w-full justify-center">
         {EXPERIENCES.map(
           (
-            { position, company, time, location, description, skills },
+            { position, company, time, location, description, type },
             index,
           ) => (
             <ExperienceTimeline
@@ -30,7 +30,8 @@ export default function SkillsUi() {
               description={description}
               isFirst={index === 0}
               isLast={index === EXPERIENCES.length - 1}
-              skills={skills}
+              index={index}
+              type={type}
             />
           ),
         )}

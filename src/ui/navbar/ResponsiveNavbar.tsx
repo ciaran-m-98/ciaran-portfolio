@@ -49,7 +49,7 @@ export default function ResponsiveNavbar() {
   return (
     <div
       className={cx(
-        'md:hidden flex flex-col overflow-hidden h-64 w-full p-6 gap-8 border-b border-green-400 bg-white dark:bg-zinc-900 z-10 fixed translate-y-[-255px]',
+        'md:hidden flex flex-col items-start p-4 justify-start overflow-hidden h-[300px] w-full gap-8 bg-white dark:bg-zinc-900 z-10 fixed translate-y-[-300px] border-b border-green-400',
         {
           slideAnimation: animate && isResponsiveNavbarOpen,
           closeAnimation: animate && !isResponsiveNavbarOpen,

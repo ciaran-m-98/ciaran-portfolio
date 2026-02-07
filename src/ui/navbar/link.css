@@ -39,10 +39,10 @@ li button:hover::after {
 
 @keyframes slideDown {
   0% {
-    transform: translateY(calc(-100% - 4rem));
+    transform: translateY(-300px);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(-64px);
   }
 }
 
@@ -54,9 +54,9 @@ li button:hover::after {
 }
 @keyframes slideUp {
   0% {
-    transform: translateY(0);
+    transform: translateY(-64px);
   }
   100% {
-    transform: translateY(-255px);
+    transform: translateY(-300px);
   }
 }

@@ -1,46 +1,52 @@
-import ContactLink from './ContatctLink';
+import ExpertiseBlock from './ExpertiseBlock';
+
 export default function AboutUi() {
   return (
-    <div className="flex flex-col justify-center size-full gap-12">
-      <div className="w-full flex flex-col gap-6 items-center">
-        <h1
-          className="text-3xl text-center underline decoration-green-400 underline-offset-8 decoration-4"
-          id="about-section-title"
-        >
-          About Me
-        </h1>
-      </div>
-      <div className="flex flex-col gap-8">
-        <div>
-          <h2 className=" text-2xl mx-4 text-center">Ciaran Melarkey</h2>
-          <h3 className="text-xl mx-4 text-center">Front-end Developer</h3>
-        </div>
-        <p className="text-sm mx-4 font-extralight text-justify">
-          Hi I&apos;m Ciarán. A front-end developer with a bachelor&apos;s in computer
-          science who develops and maintains web applications and has more than
-          3 years of experience in the area. I mostly work with React, but I&apos;ve
-          also used Vue and Angular in the past. I also have some experience
-          with working with Back-end technologies such as Java and Express.
-        </p>
-        <div className="flex w-full flex-wrap justify-center content-center gap-4">
-          <ul className='flex flex-row'>
-            <li>
-              <ContactLink
-                href="https://www.linkedin.com/in/ciaran-melarkey-694469194/"
-                label="LinkedIn"
-              />
-            </li>
-            <li>
-              <ContactLink href="/CiaranMelarkeyCV.pdf" label="Resume" />
-            </li>
-            <li>
-              <ContactLink
-                href="https://github.com/ciaran-m-98"
-                label="GitHub"
-              />
-            </li>
-          </ul>
-        </div>
+    <div className="flex flex-col justify-center size-full gap-12 max-w-7xl mx-auto">
+      <h1
+        className="text-3xl underline decoration-green-400 underline-offset-8 decoration-4"
+        id="about-section-title"
+      >
+        Expertise
+      </h1>
+      <div className="flex md:flex-row flex-col gap-8 justify-between">
+        <ExpertiseBlock
+          title="Full Stack Web Development"
+          description="I work as a web developer"
+          tech={[
+            'React',
+            'TypeScript',
+            'JavaScript',
+            'HTML5',
+            'CSS3',
+            'SASS',
+            'Postman',
+            'MongoDB',
+            'Node.js',
+            'Next.js',
+            'TailwindCSS',
+            'Express',
+            'MongoDB',
+          ]}
+        />
+
+        <ExpertiseBlock
+          title="DevOps"
+          description="I have experience with CI/CD pipelines."
+          tech={[
+            'Jenkins',
+            'Docker',
+            'Kubernetes',
+            'Git',
+            'Rancher',
+            'Confluence',
+          ]}
+        />
+        <ExpertiseBlock
+          title="Testing"
+          description="I have experience with running test cases in test rails."
+          tech={['TestRail', 'Selenium', 'Jest']}
+        />
       </div>
     </div>
   );

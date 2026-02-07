@@ -41,21 +41,13 @@ export default function Navbar() {
   return (
     <nav
       className={cx(
-        'sticky top-0 w-full h-16 flex px-2 dark:bg-zinc-900 bg-white z-50',
+        'sticky top-0 w-full h-16 flex bg-transparent md:dark:bg-zinc-900 md:bg-white z-50 md:shadow-lg',
         {
           'border-b border-green-400': mounted && windowSize.width > 767,
-          'backdrop-blur-md': !isScrollAtTop,
-          'border-b-0': isResponsiveNavbarOpen,
         },
       )}
     >
-      <div className="flex flex-row justify-between items-center w-full px-4 h-16">
-        <NavLink
-          title="Ciaran Melarkey"
-          link="main-section"
-          extraClass={'text-xl'}
-          onClick={() => dispatch(closeNavbar())}
-        />
+      <div className="flex flex-row justify-end items-center w-full px-4 h-16">
         <div className="hidden md:flex gap-16">
           <ul className="flex flex-row gap-16 justify-center items-center">
             <li>
@@ -66,11 +58,11 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="flex justify-center items-center">
-            <Link href={'https://github.com/ciaran-m-98'} target="_blank">
+            <Link href={"https://github.com/ciaran-m-98"} target="_blank">
               <Image
                 className="dark:invert"
-                src={'/github-mark.svg'}
-                alt={'Github Link'}
+                src={"/github-mark.svg"}
+                alt={"Github Link"}
                 width={24}
                 height={24}
                 priority
@@ -82,8 +74,8 @@ export default function Navbar() {
           <button onClick={() => handleNavbarState()}>
             <Image
               className="dark:invert"
-              src={isResponsiveNavbarOpen ? '/menu-open.svg' : '/menu.svg'}
-              alt={'Open / Close Menu'}
+              src={isResponsiveNavbarOpen ? "/menu-open.svg" : "/menu.svg"}
+              alt={"Open / Close Menu"}
               width={30}
               height={30}
               priority
