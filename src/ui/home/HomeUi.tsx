@@ -1,27 +1,31 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from 'next/image';
+import Link from 'next/link';
 export default function HomeUi() {
   return (
     <div className="flex lg:px-4 md:px-6 px-8 size-full items-center max-w-7xl">
+
       <div className="flex gap-8 lg:flex-row flex-col">
         <div className="w-40 h-40 border-2 rounded-full"></div>
         <div className="flex flex-col justify-center gap-2">
           <div className="flex flex-row gap-4 lg:order-1 order-3">
-            <Link href={"https://github.com/ciaran-m-98"} target="_blank">
+            <Link href={'https://github.com/ciaran-m-98'} target="_blank">
               <Image
                 className="dark:invert"
-                src={"/github-mark.svg"}
-                alt={"Github Link"}
+                src={'/github-mark.svg'}
+                alt={'Github Link'}
                 width={30}
                 height={30}
                 priority
               />
             </Link>
-            <Link href={"https://www.linkedin.com/in/ciaran-melarkey-694469194/"} target="_blank">
+            <Link
+              href={'https://www.linkedin.com/in/ciaran-melarkey-694469194/'}
+              target="_blank"
+            >
               <Image
                 className="dark:invert"
-                src={"/linkedin-mark.svg"}
-                alt={"LinkedIn Link"}
+                src={'/linkedin-mark.svg'}
+                alt={'LinkedIn Link'}
                 width={30}
                 height={30}
                 priority
@@ -47,5 +51,5 @@ export default function HomeUi() {
         </div>
       </div>
     </div>
-  )
+  );
 }

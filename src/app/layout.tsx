@@ -33,7 +33,6 @@ export default function RootLayout({
           className={`antialiased ${orienta.variable} ${jetBrainsMono.variable} m-auto font-[family-name:var(--font-jetbrains-mono)] dark`}
         >
           <Navbar />
-          <ResponsiveNavbar />
           {children}
           <Footer />
         </body>

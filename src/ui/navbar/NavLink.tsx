@@ -18,10 +18,6 @@ export function NavLink({
   const dispatch = useAppDispatch();
   const isResponsiveNavbarOpen = useAppSelector(selectNavbarIsOpen);
   function handleTitleClick(): void {
-    const navElement = document.querySelector('nav');
-    const headerHeight: number = navElement
-      ? (navElement.getBoundingClientRect().height ?? 0)
-      : 0;
 
     if (link === 'main-section') {
       window.scrollTo({

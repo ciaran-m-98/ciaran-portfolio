@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 .dark {
-  --background: #18181b;
+  --background: #000000;
   --foreground: #ffffff;
 }
 .light {
   --background: #ffffff;
-  --foreground: #18181b;
+  --foreground: #000000;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
