@@ -1,10 +1,10 @@
 import ExpertiseBlock from './ExpertiseBlock';
 export default function AboutUi() {
   return (
-    <div className="flex flex-col justify-center size-full gap-12 max-w-7xl mx-auto">
+    <div className="flex flex-col justify-center size-full gap-8 max-w-7xl mx-auto">
       <h1
         className="text-3xl underline decoration-green-400 underline-offset-8 decoration-4"
-        id="about-section-title"
+        id="expertise-section-title"
       >
         Expertise
       </h1>

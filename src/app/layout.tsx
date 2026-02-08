@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Orienta, JetBrains_Mono } from 'next/font/google';
 import Navbar from '@/ui/navbar/Navbar';
-import StoreProvider from './StoreProvider';
 import Footer from '@/ui/footer/Footer';
 
 const jetBrainsMono = JetBrains_Mono({
@@ -26,7 +25,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <StoreProvider>
       <html lang="en">
         <body
           className={`antialiased ${orienta.variable} ${jetBrainsMono.variable} m-auto font-[family-name:var(--font-jetbrains-mono)] dark`}
@@ -36,6 +34,5 @@ export default function RootLayout({
           <Footer />
         </body>
       </html>
-    </StoreProvider>
   );
 }

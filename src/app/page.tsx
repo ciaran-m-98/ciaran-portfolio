@@ -18,7 +18,6 @@ export default function Home() {
         />
       </div>
       <PageSection
-        sectionId="home-section"
         extraClass="h-[600px] flex justify-center bg-transparent relative"
       >
         <div className="relative z-10 w-full flex justify-center items-center">
@@ -26,13 +25,11 @@ export default function Home() {
         </div>
       </PageSection>
       <PageSection
-        sectionId="about-section"
         extraClass="flex justify-center p-4 z-10"
       >
         <AboutUi />
       </PageSection>
       <PageSection
-        sectionId="skills-section"
         extraClass="flex justify-center p-4 z-10"
       >
         <SkillsUi />

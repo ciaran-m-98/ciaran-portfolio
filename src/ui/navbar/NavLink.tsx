@@ -28,7 +28,7 @@ export default function NavLink({
   }
   return (
     <button
-      className={`font-semibold tracking-wider text-xl ${extraClass}`}
+      className={`font-semibold tracking-wider md:text-xl ${extraClass}`}
       onClick={() => handleTitleClick()}
     >
       {title}
