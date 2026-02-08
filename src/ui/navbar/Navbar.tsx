@@ -1,5 +1,4 @@
-'use client';
-import { NavLink } from './NavLink';
+import NavLink from './NavLink';
 import '../../app/globals.css';
 import classNames from 'classnames';
 export default function Navbar() {

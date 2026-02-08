@@ -1,26 +1,26 @@
-"use client"
-import React, { useState, useEffect } from "react"
-import { useWindowSize } from "@/service/hooks"
-import Image from "next/image"
+'use client';
+import { useState, useEffect } from 'react';
+import { useWindowSize } from '@/service/hooks';
+import Image from 'next/image';
 export default function EventLine({
   isFirst,
   isLast,
   id,
   type,
 }: {
-  isFirst: boolean
-  isLast: boolean
-  id: string
-  type: string
+  isFirst: boolean;
+  isLast: boolean;
+  id: string;
+  type: string;
 }) {
-  const windowSize = useWindowSize()
-  const [elementHeight, setElementHeight] = useState<number | null>(null)
+  const windowSize = useWindowSize();
+  const [elementHeight, setElementHeight] = useState<number | null>(null);
   useEffect(() => {
-    const el = document.getElementById(id)
+    const el = document.getElementById(id);
     if (el) {
-      setElementHeight(el.clientHeight / 2 / 12 || null)
+      setElementHeight(el.clientHeight / 2 / 12 || null);
     }
-  }, [windowSize, id])
+  }, [windowSize, id]);
   return (
     <div className="flex flex-col justify-center items-center w-8 gap-2 order-1 md:order-2">
       {!isFirst ? (
@@ -31,8 +31,14 @@ export default function EventLine({
       ) : (
         <div className="w-1" style={{ height: `${elementHeight}rem` }} />
       )}
-      <div className="rounded-[50%] border-4 border-white bg-green-400 md:h-16 md:w-16 h-12 w-12 flex justify-center items-center" >
-          <Image src={`/${type}.svg`} alt={type} width={27} height={27} className="invert" />
+      <div className="rounded-[50%] border-4 border-white bg-green-400 md:h-16 md:w-16 h-12 w-12 flex justify-center items-center">
+        <Image
+          src={`/${type}.svg`}
+          alt={type}
+          width={27}
+          height={27}
+          className="invert"
+        />
       </div>
       {!isLast ? (
         <div
@@ -43,5 +49,5 @@ export default function EventLine({
         <div className="w-1" style={{ height: `${elementHeight}rem` }} />
       )}
     </div>
-  )
+  );
 }

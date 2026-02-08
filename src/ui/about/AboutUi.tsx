@@ -1,5 +1,4 @@
 import ExpertiseBlock from './ExpertiseBlock';
-
 export default function AboutUi() {
   return (
     <div className="flex flex-col justify-center size-full gap-12 max-w-7xl mx-auto">

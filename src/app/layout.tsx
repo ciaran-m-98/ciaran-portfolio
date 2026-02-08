@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Orienta, JetBrains_Mono } from 'next/font/google';
 import Navbar from '@/ui/navbar/Navbar';
-import ResponsiveNavbar from '@/ui/navbar/ResponsiveNavbar';
 import StoreProvider from './StoreProvider';
 import Footer from '@/ui/footer/Footer';
 
