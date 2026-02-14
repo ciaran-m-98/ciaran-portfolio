@@ -19,7 +19,7 @@ export default function NavLink({
 
     const rect = targetElement.getBoundingClientRect();
     const elementTop: number = rect.top + window.pageYOffset;
-    const offsetPosition: number = Math.round(elementTop - 12);
+    const offsetPosition: number = Math.round(elementTop - 120);
 
     window.scrollTo({
       top: offsetPosition,

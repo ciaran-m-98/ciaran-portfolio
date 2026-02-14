@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
       <html lang="en">
         <body
-          className={`antialiased ${orienta.variable} ${jetBrainsMono.variable} m-auto font-[family-name:var(--font-jetbrains-mono)] dark`}
+          className={`antialiased ${orienta.variable} ${jetBrainsMono.variable} m-auto font-[family-name:var(--font-jetbrains-mono)]`}
         >
           <Navbar />
           {children}
