@@ -31,7 +31,7 @@ export default function EventLine({
       ) : (
         <div className="w-1" style={{ height: `${elementHeight}rem` }} />
       )}
-      <div className="rounded-[50%] border-4 border-white bg-green-400 md:h-16 md:w-16 h-12 w-12 flex justify-center items-center">
+      <div className="rounded-[50%] border-4 border-white bg-green-400 md:h-16 md:w-16 h-12 w-12 flex justify-center items-center shadow-lg dark:shadow-none">
         <Image
           src={`/${type}.svg`}
           alt={type}

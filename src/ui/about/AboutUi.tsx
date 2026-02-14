@@ -11,7 +11,7 @@ export default function AboutUi() {
       <div className="flex md:flex-row flex-col gap-8 justify-between">
         <ExpertiseBlock
           title="Full Stack Web Development"
-          description="I work as a web developer"
+          description="I work primarily as a full stack web developer, with an emphasis on frontend development. I enjoy building responsive and user-friendly web applications."
           tech={[
             'React',
             'TypeScript',
@@ -31,7 +31,7 @@ export default function AboutUi() {
 
         <ExpertiseBlock
           title="DevOps"
-          description="I have experience with CI/CD pipelines."
+          description="I have experience creating and maintaining CI/CD pipelines, as well as containerization and orchestration using Docker and Kubernetes."
           tech={[
             'Jenkins',
             'Docker',
@@ -43,8 +43,8 @@ export default function AboutUi() {
         />
         <ExpertiseBlock
           title="Testing"
-          description="I have experience with running test cases in test rails."
-          tech={['TestRail', 'Selenium', 'Jest']}
+          description="I have experience with front end testing using Jest, as well as API testing using Postman. I've also assisted QA teams in regression testing using TestRail."
+          tech={['TestRail', 'Selenium', 'Jest', 'Postman']}
         />
       </div>
     </div>

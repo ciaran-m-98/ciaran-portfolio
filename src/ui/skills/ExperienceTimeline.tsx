@@ -28,7 +28,7 @@ export default function ExperienceTimeline({
     <div className="flex flex-row items-center justify-center md:gap-8 gap-4">
       <div
         className={cx(
-          'flex flex-col justify-center bg-white rounded-md flex-1 px-2 gap-2 shadow-lg py-8 order-2',
+          'flex flex-col justify-center bg-white rounded-md flex-1 px-2 gap-2 shadow-lg dark:shadow-none py-8 order-2',
           index % 2 === 0 ? 'md:order-1' : 'md:order-3',
         )}
         id={id}
@@ -44,7 +44,9 @@ export default function ExperienceTimeline({
             {description}
           </span>
         )}
-        <span className="text-xs font-light text-black w-full md:hidden">{time}</span>
+        <span className="text-xs font-light text-black w-full md:hidden">
+          {time}
+        </span>
       </div>
       <EventLine isFirst={isFirst} isLast={isLast} id={id} type={type} />
       <div
