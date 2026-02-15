@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <nav
       className={cx(
-        'fixed top-8 left-0 right-0 mx-auto w-[calc(100%-2rem)] max-w-7xl h-16 rounded-3xl border border-stone-100/20 flex backdrop-blur-md z-20 px-4 shadow-lg dark:shadow-none',
+        'fixed top-8 left-0 right-0 mx-auto w-[calc(100%-2rem)] max-w-7xl h-16 rounded-3xl border border-stone-100/20 flex backdrop-blur-md z-20 px-4 shadow-lg dark:shadow-none dark:mix-blend-difference',
       )}
     >
       <div className="flex flex-row justify-center items-center w-full p-4 h-16">

@@ -6,7 +6,7 @@ export default function SkillsUi() {
     <div className="flex flex-col items-start size-full max-w-7xl">
       <div className="w-full flex flex-col gap-8">
         <h1
-          className="text-3xl underline decoration-green-400 underline-offset-8 decoration-4"
+          className="text-3xl underline dark:decoration-green-400 decoration-stone-400 underline-offset-8 decoration-4"
           id="history-section-title"
         >
           History
