@@ -38,7 +38,7 @@ export default function BackgroundVeil() {
           scanlineIntensity={0}
           speed={1}
           scanlineFrequency={0}
-          warpAmount={0}
+          warpAmount={3}
         />
       ) : (
         <Threads

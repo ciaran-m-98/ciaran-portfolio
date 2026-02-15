@@ -20,7 +20,6 @@ export default function AboutUi() {
             'CSS3',
             'SASS',
             'Postman',
-            'MongoDB',
             'Node.js',
             'Next.js',
             'TailwindCSS',
