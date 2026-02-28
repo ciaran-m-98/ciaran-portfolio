@@ -3,7 +3,7 @@ export default function AboutUi() {
   return (
     <div className="flex flex-col justify-center size-full gap-8 max-w-7xl mx-auto">
       <h1
-        className="text-3xl underline dark:decoration-green-400 decoration-stone-400 underline-offset-8 decoration-4"
+        className="text-3xl underline dark:decoration-green-400 decoration-purple-900 underline-offset-8 decoration-4"
         id="expertise-section-title"
       >
         Expertise

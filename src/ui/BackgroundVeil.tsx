@@ -42,7 +42,7 @@ export default function BackgroundVeil() {
         />
       ) : (
         <Threads
-          color={[0.68, 0.68, 0.68]}
+          color={[0.35, 0.09, 0.55]}
           amplitude={1}
           distance={0}
           enableMouseInteraction={false}

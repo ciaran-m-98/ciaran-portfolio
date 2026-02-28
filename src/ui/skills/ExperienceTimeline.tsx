@@ -56,7 +56,7 @@ export default function ExperienceTimeline({
         )}
         id={id}
       >
-        <span className="text-md font-light text-green-400 w-full">{time}</span>
+        <span className="text-md font-light dark:text-green-400 text-purple-900 w-full">{time}</span>
       </div>
     </div>
   );
