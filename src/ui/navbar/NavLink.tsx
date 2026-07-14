@@ -2,7 +2,7 @@
 export default function NavLink({
   link,
   title,
-  extraClass,
+  extraClass = '',
 }: {
   link: string;
   title: string;

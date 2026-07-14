@@ -1,3 +1,7 @@
+'use client';
+
+import { useInView } from '@/service/hooks';
+
 export default function ExpertiseBlock({
   title,
   description,
@@ -7,8 +11,15 @@ export default function ExpertiseBlock({
   description?: string
   tech?: string[]
 }) {
+  const { ref, isInView } = useInView<HTMLDivElement>();
+
   return (
-    <div className="flex flex-col gap-6 flex-1">
+    <div
+      ref={ref}
+      className={`flex flex-col gap-6 flex-1 transition-all duration-700 ease-out will-change-transform will-change-opacity ${
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+      }`}
+    >
       <h1 className="font-bold text-lg">{title}</h1>
       <p className="font-thin text-sm">{description}</p>
       <div className="flex flex-row gap-2">

@@ -5,7 +5,16 @@ export default function HomeUi() {
     <div className="flex lg:px-4 md:px-6 px-8 size-full items-center max-w-7xl">
 
       <div className="flex gap-8 lg:flex-row flex-col">
-        <div className="w-40 h-40 border-2 rounded-full"></div>
+        <div className="relative w-40 h-40 border-2 rounded-full overflow-hidden">
+          <Image
+            className="rounded-full object-cover"
+            src={'/profile.jpg'}
+            alt={'Profile Picture'}
+            fill
+            sizes="160px"
+            priority
+          />
+        </div>
         <div className="flex flex-col justify-center gap-2">
           <div className="flex flex-row gap-4 lg:order-1 order-3">
             <Link href={'https://github.com/ciaran-m-98'} target="_blank">

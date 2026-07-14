@@ -1,5 +1,5 @@
 'use client';
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState, useEffect, useRef } from 'react';
 
 type windowSize = {
   width: number;
@@ -35,4 +35,32 @@ export const useWindowSize = (): windowSizeHook => {
   }, [isClient]);
 
   return windowSize;
+};
+
+export const useInView = <T extends Element>(options?: IntersectionObserverInit) => {
+  const ref = useRef<T | null>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.15,
+        ...options,
+      }
+    );
+
+    observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, [options]);
+
+  return { ref, isInView };
 };
